@@ -29,6 +29,7 @@ def logout():
 
 class StringGenerator(object):
 
+    webbrowser.open("http://127.0.0.1:8080")
     @cherrypy.expose
     def index(self, cas=0):
         if(cas):
