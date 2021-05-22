@@ -13,6 +13,7 @@ url = "http://127.0.0.1:8080/"
 def logout():
     if (os.name == "posix"):
         os.system("gnome-screensaver-command -l")
+        os.system("xscreensaver-command -lock")
         os.system("exit")
     os.system("rundll32.exe user32.dll,LockWorkStation")
     
@@ -100,6 +101,20 @@ class FaceDetect(object):
         return open('index.html')
    
 
-if __name__ == '__main__':
-    cherrypy.quickstart(FaceDetect())
 
+if __name__ == '__main__':
+    conf = {
+        '/': {
+            'tools.sessions.on': True,
+            'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+        '/style': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './style'
+        },
+        '/ico': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './ico'
+        }
+    }
+    cherrypy.quickstart(FaceDetect(), '/', conf)

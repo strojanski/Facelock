@@ -1,0 +1,64 @@
+
+body {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.naslov {
+    width: 100%;
+    text-align: center;
+    background-color: #56596A;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Montserrat-Regular';
+}
+
+.naslov_text {
+    color: #FFFFFF;
+    font-size: 3rem;
+    font-family: 'Montserrat-Bold';
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('fonts/Montserrat-Bold.ttf');
+}
+
+.message {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+    background-color: #56596A;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.message_text {
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+input[type=submit] {
+    background-color: #222433;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
