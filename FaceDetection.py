@@ -10,13 +10,6 @@ import webbrowser
 
 url = "http://127.0.0.1:8080/"
 
-# if (os.name == "posix"):
-#     chrome_path = '/usr/bin/google-chrome %s'
-# else:
-#     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-# webbrowser.get(chrome_path).open(url)
-# webbrowser.get('chrome').open(url)
-
 def logout():
     if (os.name == "posix"):
         os.system("gnome-screensaver-command -l")
@@ -27,7 +20,7 @@ def logout():
     print(os.getlogin())
 # camera feed is in at cca 8 fps
 
-class StringGenerator(object):
+class FaceDetect(object):
 
     webbrowser.open("http://127.0.0.1:8080")
     @cherrypy.expose
@@ -50,7 +43,7 @@ class StringGenerator(object):
                     # returns an array of rectangles around found objects in a given image
                     faces_def = frontface_default.detectMultiScale(gray, 1.2, 5)
                     faces_alt = frontface_alt.detectMultiScale(gray, 1.2, 5)
-                    faces_profile = frontface_default.detectMultiScale(gray, 1.2, 5)
+                    faces_profile = frontface_profile.detectMultiScale(gray, 1.2, 5)
                     if (len(faces_alt) != 0):
                         for (x, y, w, h) in faces_alt:
                             # draw a rectangle around detected faces
@@ -79,7 +72,7 @@ class StringGenerator(object):
                             for (ex, ey, ew, eh) in eyes_detect:
                                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
                         
-                    #cv2.imshow('img', img)
+                    #cv2.imshow('canvas', img)
                     if len(faces_alt) != 0 and len(faces_def) != 0 and len(faces_profile) != 0:
                         time1 = time.time()
                     k = cv2.waitKey(30) & 0xff
@@ -103,9 +96,10 @@ class StringGenerator(object):
                 return open('set.html')
             return open('set.html')
             
+            
         return open('index.html')
    
 
 if __name__ == '__main__':
-    cherrypy.quickstart(StringGenerator())
+    cherrypy.quickstart(FaceDetect())
 
