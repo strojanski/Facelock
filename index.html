@@ -4,57 +4,6 @@
     <head>
         <title>FaceLock</title>
         <link rel="user.ico">
-        <style>
-        body {
-            margin: 0;
-        }
-
-        .naslov {
-            width: 100%;
-            text-align: center;
-            background-color: #56596A;
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .naslov_text {
-            color: white;
-            font-size: 3rem;
-        }
-
-        .settings {
-            width: 50%;
-            padding: 10px;
-            margin: 10px;
-
-            background-color: #E0E1E1;
-        }
-
-        input[type=number], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type=submit] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            background-color: #56596A;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-        </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <style>
@@ -157,6 +106,7 @@
            </div>
 
            <div class="settings">
+            <form method="get" acton="generate">
                <div class="input-group suffix">
                    <input type="number" name="cas" placeholder="5">
                    <span class="input-group-addon">s</span>
@@ -175,6 +125,7 @@
                 </div>
                 
                 <input type="submit">
+            </form>
             </div>
     </body>
 </html>

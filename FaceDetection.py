@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import os
+import time
 # cascades taken from: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 
 def logout():
@@ -15,18 +16,20 @@ def logout():
     print(os.getlogin())
 
 
-frontface_default = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-frontface_alt = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
-frontface_profile = cv2.CascadeClassifier('haarcascade_profileface.xml')
+frontface_default = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
+frontface_alt = cv2.CascadeClassifier('cascades/haarcascade_frontalface_alt.xml')
+frontface_profile = cv2.CascadeClassifier('cascades/haarcascade_profileface.xml')
 
-eyes_def = cv2.CascadeClassifier('haarcascade_eye.xml')
-eyes_glasses = cv2.CascadeClassifier('haarcascade_eye_tree_eyeglasses')
+eyes_def = cv2.CascadeClassifier('cascades/haarcascade_eye.xml')
+eyes_glasses = cv2.CascadeClassifier('cascades/haarcascade_eye_tree_eyeglasses')
 print(frontface_default)
 
 camera = cv2.VideoCapture(0)
 time_without_faces = 0
+frame_count = 0
 # we read frames until escape key is pressed
 while True:
+    frame_count+=1
     ret, img = camera.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # returns an array of rectangles around found objects in a given image
@@ -64,6 +67,7 @@ while True:
     global k
     k = cv2.waitKey(30) & 0xff
     if (k == 27):
+        print("Frames: " + frame_count)
         break
     if len(faces_alt) == 0 and len(faces_def) == 0 and len(faces_profile) == 0:
         time_without_faces += 1
