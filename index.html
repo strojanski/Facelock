@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>FaceLock</title>
+        <link rel="user.ico">
+        <style>
+        body {
+            margin: 0;
+        }
+
+        .naslov {
+            width: 100%;
+            text-align: center;
+            background-color: #56596A;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .naslov_text {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .settings {
+            width: 50%;
+            padding: 10px;
+            margin: 10px;
+
+            background-color: #E0E1E1;
+        }
+
+        input[type=number], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #56596A;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <style>
+
+            body {
+                margin: 0;
+            }
+
+            .naslov {
+                width: 100%;
+                text-align: center;
+                background-color: #56596A;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+
+            .naslov_text {
+                color: white;
+                font-size: 3rem;
+            }
+
+            .settings {
+                width: 50%;
+                padding: 10px;
+                margin: 10px;
+                background-color: #E0E1E1;
+            }
+
+
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .input-group-addon {
+                padding: 6px 12px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1;
+                text-align: center;
+                background-color: #eee;
+                border: 1px solid #ccc;
+                width: 1%;
+                white-space: nowrap;
+                vertical-align: middle;
+                display: table-cell;
+            }
+
+            input {
+                position: relative;
+                z-index: 2;
+                float: left;
+                width: 100%;
+                margin-bottom: 0;
+                display: table-cell;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                margin: 0;
+            }
+
+            .suffix input {
+                border-radius: 4px 0px 0px 4px;
+            }
+            .suffix .input-group-addon {
+                border-left: 0;
+                border-radius: 0px 4px 4px 0px;
+            }
+            .input-group-addon.suffix {
+                border-radius: 0px 4px 4px 0px;
+                border-left: 0;
+            }
+            .input-group {
+                position: relative;
+                display: table;
+                border-collapse: separate;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #56596A;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+
+            input[type=submit]:hover {
+                background-color: #222433;
+            }
+        </style>
+    </head>
+
+    <body>
+           <div class="naslov" >
+                <div class="naslov_text">FaceLock settings</div> 
+           </div>
+
+           <div class="settings">
+               <div class="input-group suffix">
+                   <input type="number" name="cas" placeholder="5">
+                   <span class="input-group-addon">s</span>
+                </div>
+               <div class="input-group suffix">
+                   <input type="number" name="cas1" placeholder="5">
+                   <span class="input-group-addon">s</span>
+                </div>
+               <div class="input-group suffix">
+                   <input type="number" name="cas2" placeholder="5">
+                   <span class="input-group-addon">s</span>
+                </div>
+               <div class="input-group suffix">
+                   <input type="number" name="cas3" placeholder="5">
+                   <span class="input-group-addon">s</span>
+                </div>
+                
+                <input type="submit">
+            </div>
+    </body>
+</html>
