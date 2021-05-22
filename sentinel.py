@@ -7,13 +7,16 @@ import cherrypy
 
 class StringGenerator(object):
     @cherrypy.expose
-    def index(self):
+    def index(self, cas=0):
+        if(cas):
+            return open('set.html')
         return open('index.html')
 
+
     @cherrypy.expose
-    def generate(self, cas, cas1, cas2, cas3):
-        print(self)
-        return 'Spremenljivke: ' + cas + ' '+ cas1 + ' ' + cas2 + ' ' + cas3
+    def generate(self, cas):
+        #open('set.html')
+        return 'Spremenljivke: ' + cas
 
 
 if __name__ == '__main__':
