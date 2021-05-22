@@ -3,8 +3,19 @@ import numpy as np
 import os, sys
 import time
 import cherrypy
+import webbrowser
 
 # cascades taken from: https://github.com/Itseez/opencv/tree/master/data/haarcascades
+
+
+url = "http://127.0.0.1:8080/"
+
+# if (os.name == "posix"):
+#     chrome_path = '/usr/bin/google-chrome %s'
+# else:
+#     chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+# webbrowser.get(chrome_path).open(url)
+# webbrowser.get('chrome').open(url)
 
 def logout():
     if (os.name == "posix"):

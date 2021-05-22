@@ -16,11 +16,23 @@
                 background-color: #56596A;
                 padding-top: 30px;
                 padding-bottom: 30px;
+                font-family: 'Montserrat-Regular';
             }
 
             .naslov_text {
                 color: #FFFFFF;
                 font-size: 3rem;
+                font-family: 'Montserrat-Bold';
+            }
+
+            @font-face {
+                font-family: 'Montserrat-Regular';
+                src: url('fonts/Montserrat-Regular.ttf');
+            }
+
+            @font-face {
+                font-family: 'Montserrat-Bold';
+                src: url('fonts/Montserrat-Bold.ttf');
             }
 
             .message {
@@ -49,6 +61,7 @@
                 border-radius: 4px;
                 cursor: pointer;
                 margin-top: 20px;
+                text-align: "right";
             }
 
             input[type=submit]:hover {
@@ -63,7 +76,7 @@
             <div class="naslov_text">FaceLock settings</div> 
         </div>
         <div class="message" >
-            <div class="message_text">Pozdravljeni nazaj! Za nadaljno uporabo resetirajte strežnik</div> 
+            <div class="message_text naslov"><p>Pozdravljeni nazaj!</p><p>Za nadaljno uporabo resetirajte strežnik.</p></div> 
             <a href="/">
              <input type="submit" value="SPREMENI NASTAVITVE">
              </a>

@@ -11,6 +11,16 @@
             body {
                 margin: 0;
             }
+
+            @font-face {
+                font-family: 'Montserrat-Bold';
+                src: url('fonts/Montserrat-Bold.ttf');
+            }
+
+            @font-face {
+                font-family: 'Montserrat-Regular';
+                src: url('fonts/Montserrat-Regular.ttf');
+            }
             
             .naslov {
                 width: 100%;
@@ -18,11 +28,14 @@
                 background-color: #56596A;
                 padding-top: 30px;
                 padding-bottom: 30px;
+                font-family: 'Montserrat-Regular';
+
             }
 
             .naslov_text {
                 color: #FFFFFF;
                 font-size: 3rem;
+                font-family: 'Montserrat-Bold';
             }
 
             .master {
@@ -97,6 +110,10 @@
                 background-color: #222433;
             }
 
+            #cas {
+                text-align: right;
+            }
+
         </style>
     </head>
 
@@ -112,9 +129,9 @@
 
                 <form method="get" acton="faceDetector">
                     <div class="input-group suffix">
-                        <span class="input-group-addon prefix">Čas neaktivnosti po katerem se računalnik zaklene</span>
-                        <input type="number" name="cas" placeholder="Čas v sekundah" min="5" value="5" required>
-                        <span class="input-group-addon suffix">s</span>
+                        <span class="input-group-addon prefix naslov">Čas neaktivnosti po katerem se računalnik zaklene:</span>
+                        <input type="number" id="cas" name="cas" placeholder="Čas v sekundah" min="5" value="5" required>
+                        <span class="input-group-addon suffix naslov">s</span>
                     </div>                 
                     <input type="submit" value="SUBMIT">
                 </form>
