@@ -86,7 +86,7 @@ class StringGenerator(object):
                             sys.exit("No face detected. Exiting ...")
                 camera.release()
                 cv2.destroyAllWindows()
-            except cv2.error as e:
+            except BaseException as e:
                 print(e)
                 return open('set.html')
             return open('set.html')
