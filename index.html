@@ -2,16 +2,16 @@
 <html>
     
     <head>
+        <meta charset="UTF-8">
         <title>FaceLock</title>
-        <link rel="user.ico">
+        <link rel="shortcut icon" href="facelock.ico"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        
         <style>
-
             body {
                 margin: 0;
             }
-
+            
             .naslov {
                 width: 100%;
                 text-align: center;
@@ -21,17 +21,20 @@
             }
 
             .naslov_text {
-                color: white;
+                color: #FFFFFF;
                 font-size: 3rem;
             }
 
-            .settings {
-                width: 50%;
-                padding: 10px;
-                margin: 10px;
-                background-color: #E0E1E1;
+            .master {
+                display: flex;
+                justify-content: center;
             }
 
+            .settings {
+                padding: 10px;
+                margin: 10px;
+                width: 50%;
+            }
 
             * {
                 -webkit-box-sizing: border-box;
@@ -39,14 +42,22 @@
                 box-sizing: border-box;
             }
 
+            .container {
+                max-width: 1080px;
+                margin: 0 auto;
+            }
+            .row {
+                margin: 10px;
+            }
             .input-group-addon {
                 padding: 6px 12px;
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 1;
+                color: #555;
                 text-align: center;
                 background-color: #eee;
-                border: 1px solid #ccc;
+                border: 1px solid #56596A;
                 width: 1%;
                 white-space: nowrap;
                 vertical-align: middle;
@@ -65,17 +76,6 @@
                 margin: 0;
             }
 
-            .suffix input {
-                border-radius: 4px 0px 0px 4px;
-            }
-            .suffix .input-group-addon {
-                border-left: 0;
-                border-radius: 0px 4px 4px 0px;
-            }
-            .input-group-addon.suffix {
-                border-radius: 0px 4px 4px 0px;
-                border-left: 0;
-            }
             .input-group {
                 position: relative;
                 display: table;
@@ -83,7 +83,6 @@
             }
 
             input[type=submit] {
-                width: 100%;
                 background-color: #56596A;
                 color: white;
                 padding: 14px 20px;
@@ -97,35 +96,33 @@
             input[type=submit]:hover {
                 background-color: #222433;
             }
+
         </style>
     </head>
 
     <body>
-           <div class="naslov" >
-                <div class="naslov_text">FaceLock settings</div> 
-           </div>
+        <div class="naslov" >
+            <div class="naslov_text">FaceLock settings</div> 
+        </div>
 
-           <div class="settings">
-            <form method="get" acton="generate">
-               <div class="input-group suffix">
-                   <input type="number" name="cas" placeholder="5">
-                   <span class="input-group-addon">s</span>
-                </div>
-               <div class="input-group suffix">
-                   <input type="number" name="cas1" placeholder="5">
-                   <span class="input-group-addon">s</span>
-                </div>
-               <div class="input-group suffix">
-                   <input type="number" name="cas2" placeholder="5">
-                   <span class="input-group-addon">s</span>
-                </div>
-               <div class="input-group suffix">
-                   <input type="number" name="cas3" placeholder="5">
-                   <span class="input-group-addon">s</span>
-                </div>
-                
-                <input type="submit">
-            </form>
+
+        <div class="master">
+
+            <div class="settings">
+                <form method="get" acton="generate">
+                    <div class="input-group suffix">
+                        <span class="input-group-addon prefix">Čas neaktivnosti po katerem se računalnik zaklene</span>
+                        <input type="number" name="cas" placeholder="Čas v sekundah" min="5">
+                        <span class="input-group-addon suffix">s</span>
+                    </div>
+                    
+                    
+                </form>
+                <a href="set.html">
+                    <input type="submit" value="SUMBIT">
+                </a>
             </div>
+            
+        </div>
     </body>
 </html>
