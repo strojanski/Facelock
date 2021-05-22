@@ -17,18 +17,14 @@ def logout():
 frontface_default = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.xml')
 frontface_alt = cv2.CascadeClassifier('cascades/haarcascade_frontalface_alt.xml')
 frontface_profile = cv2.CascadeClassifier('cascades/haarcascade_profileface.xml')
-
 eyes_def = cv2.CascadeClassifier('cascades/haarcascade_eye.xml')
 eyes_glasses = cv2.CascadeClassifier('cascades/haarcascade_eye_tree_eyeglasses')
 print(frontface_default)
 
 camera = cv2.VideoCapture(0)
-time_without_faces = 0
-frame_count = 0
 cas = time.time()
 # we read frames until escape key is pressed
 while True:
-    frame_count+=1
     ret, img = camera.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # returns an array of rectangles around found objects in a given image
@@ -64,22 +60,16 @@ while True:
                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
         
     cv2.imshow('img', img)
-    global k
     k = cv2.waitKey(30) & 0xff
     if (k == 27):
         cas2 = time.time()
         total_time = cas2 - cas
-        print("Frames: " + frame_count + "\nTime: " + total_time)
         break
     if len(faces_alt) == 0 and len(faces_def) == 0 and len(faces_profile) == 0:
-        time_without_faces += 1
-    else:
-        time_without_faces = 0
-    if (time_without_faces >= 50):
         cas2 = time.time()
         total_time = cas2 - cas
         if (total_time > 5):
-            print("Frames: " + str(frame_count) + "\nTime: " + str(total_time))
+            print("Time: " + str(total_time))
             logout()
             sys.exit("No face detected. Exiting ...")
 
