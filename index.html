@@ -5,7 +5,12 @@
         <meta charset="UTF-8">
         <title>FaceLock</title>
         <link rel="shortcut icon" href="facelock.ico"></link>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function disable() {
+                document.getElementById("disabled").style.display = "none";
+            }
+
+        </script>
         
         <style>
             body {
@@ -89,12 +94,12 @@
                 margin: 8px 0;
                 border: none;
                 border-radius: 4px;
-                cursor: pointer;
                 margin-top: 20px;
             }
 
             input[type=submit]:hover {
                 background-color: #222433;
+                cursor: pointer;
             }
 
         </style>
@@ -110,13 +115,13 @@
 
             <div class="settings">
 
-                <form method="get" acton="faceDetector">
+                <form id="disabled" method="get" acton="faceDetector">
                     <div class="input-group suffix">
                         <span class="input-group-addon prefix">Čas neaktivnosti po katerem se računalnik zaklene</span>
                         <input type="number" name="cas" placeholder="Čas v sekundah" min="5" value="5" required>
                         <span class="input-group-addon suffix">s</span>
                     </div>                 
-                    <input type="submit" value="SUBMIT">
+                    <input onclick="disable()" type="submit" value="SUBMIT">
                 </form>
             </div>
             

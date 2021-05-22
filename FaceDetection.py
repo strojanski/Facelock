@@ -3,6 +3,7 @@ import numpy as np
 import os, sys
 import time
 import cherrypy
+import webbrowser
 
 # cascades taken from: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 
@@ -18,6 +19,7 @@ def logout():
 
 class StringGenerator(object):
 
+    webbrowser.open("http://127.0.0.1:8080")
     @cherrypy.expose
     def index(self, cas=0):
         if(cas):
