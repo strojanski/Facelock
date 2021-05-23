@@ -93,6 +93,7 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     margin-top: 20px;
+    transition-duration: 150ms;
 }
 
 input[type=submit]:hover {
