@@ -94,11 +94,11 @@ class FaceDetect(object):
                 cv2.destroyAllWindows()
             except BaseException as e:
                 print(e)
-                return open('set.html')
-            return open('set.html')
+                return open('set.html', encoding="utf8")
+            return open('set.html', encoding="utf8")
             
             
-        return open('index.html')
+        return open('index.html', encoding="utf8")
    
 
 
