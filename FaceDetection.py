@@ -32,7 +32,7 @@ class FaceDetect(object):
                 frontface_alt = cv2.CascadeClassifier('cascades/haarcascade_frontalface_alt.xml')
                 frontface_profile = cv2.CascadeClassifier('cascades/haarcascade_profileface.xml')
                 eyes_def = cv2.CascadeClassifier('cascades/haarcascade_eye.xml')
-                eyes_glasses = cv2.CascadeClassifier('cascades/haarcascade_eye_tree_eyeglasses')
+                eyes_glasses = cv2.CascadeClassifier('cascades/haarcascade_eye_tree_eyeglasses.xml')
                 print(frontface_default)
 
                 camera = cv2.VideoCapture(0)
@@ -52,8 +52,11 @@ class FaceDetect(object):
                             roi_gray = gray[y:y+h, x:x+w]
                             roi_color = img[y:y+h, x:x+w]
                             eyes_detect = eyes_def.detectMultiScale(roi_gray)
+                            glasses_detect = eyes_glasses.detectMultiScale(roi_gray)
                             for (ex, ey, ew, eh) in eyes_detect:
                                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+                            for (ex, ey, ew, eh) in glasses_detect:
+                                cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
                     elif (len(faces_def) != 0):
                         for (x, y, w, h) in faces_def:
                             # draw a rectangle around detected faces
@@ -61,8 +64,11 @@ class FaceDetect(object):
                             roi_gray = gray[y:y+h, x:x+w]
                             roi_color = img[y:y+h, x:x+w]
                             eyes_detect = eyes_def.detectMultiScale(roi_gray)
+                            glasses_detect = eyes_glasses.detectMultiScale(roi_gray)
                             for (ex, ey, ew, eh) in eyes_detect:
                                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+                            for (ex, ey, ew, eh) in glasses_detect:
+                                cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
                     else: 
                         for (x, y, w, h) in faces_profile:
                                 # draw a rectangle around detected faces
@@ -70,8 +76,11 @@ class FaceDetect(object):
                             roi_gray = gray[y:y+h, x:x+w]
                             roi_color = img[y:y+h, x:x+w]
                             eyes_detect = eyes_def.detectMultiScale(roi_gray)
+                            glasses_detect = eyes_glasses.detectMultiScale(roi_gray)
                             for (ex, ey, ew, eh) in eyes_detect:
                                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
+                            for (ex, ey, ew, eh) in glasses_detect:
+                                cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
                         
                     cv2.imshow('canvas', img)
                     if len(faces_alt) != 0 or len(faces_def) != 0 or len(faces_profile) != 0:
