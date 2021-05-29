@@ -73,8 +73,8 @@ class FaceDetect(object):
                             for (ex, ey, ew, eh) in eyes_detect:
                                 cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
                         
-                    #cv2.imshow('canvas', img)
-                    if len(faces_alt) != 0 and len(faces_def) != 0 and len(faces_profile) != 0:
+                    cv2.imshow('canvas', img)
+                    if len(faces_alt) != 0 or len(faces_def) != 0 or len(faces_profile) != 0:
                         time1 = time.time()
                     k = cv2.waitKey(30) & 0xff
                     if (k == 27):
